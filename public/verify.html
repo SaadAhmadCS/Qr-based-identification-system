@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Application - QR Verification System</title>
+  <meta name="description" content="Verify visa application authenticity using the official QR verification system">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="bg-pattern"></div>
+  
+  <div class="container">
+    <header class="header">
+      <h1>🔍 Application Verification</h1>
+      <p>Verify the authenticity of visa applications</p>
+      <a href="/" style="color: var(--primary-light); text-decoration: none; font-size: 0.875rem; margin-top: 8px; display: inline-block;">← Back to Application Form</a>
+    </header>
+    
+    <div class="card verify-card" id="verifyCard">
+      <!-- Loading State -->
+      <div id="loadingState" style="text-align: center; padding: 40px;">
+        <div class="spinner" style="margin: 0 auto 20px;"></div>
+        <p style="color: var(--text-secondary);">Verifying application...</p>
+      </div>
+      
+      <!-- Verified Result -->
+      <div id="verifiedResult" style="display: none;">
+        <div class="verify-status verified" id="statusBadge">
+          <span>✓</span>
+          <span id="statusText">Verified</span>
+        </div>
+        
+        <div class="detail-grid" id="detailGrid">
+          <!-- Details populated dynamically -->
+        </div>
+        
+        <div class="footer-text">
+          Verification Count: <span id="verifyCount">0</span> | 
+          Last Verified: <span id="lastVerified">-</span>
+        </div>
+      </div>
+      
+      <!-- Error State -->
+      <div id="errorState" style="display: none; text-align: center; padding: 40px;">
+        <div style="font-size: 4rem; margin-bottom: 16px;">❌</div>
+        <h2 style="color: var(--danger); margin-bottom: 8px;">Verification Failed</h2>
+        <p id="errorText" style="color: var(--text-secondary);">Application not found</p>
+        <a href="/" class="btn btn-primary" style="margin-top: 24px; text-decoration: none;">
+          Submit New Application
+        </a>
+      </div>
+    </div>
+    
+    <!-- Manual Verification -->
+    <div class="card" style="margin-top: 24px;">
+      <h2 style="font-size: 1.1rem; margin-bottom: 16px; color: var(--text-secondary);">
+        Manual Verification
+      </h2>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <input type="text" id="manualRef" placeholder="Enter Reference Number (e.g., VIS-2026-A3B2C1)" 
+          style="flex: 1; min-width: 200px; padding: 12px 16px; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary);">
+        <button type="button" class="btn btn-primary" id="manualVerifyBtn">Verify</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/verify.js"></script>
+</body>
+</html>
