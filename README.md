@@ -80,13 +80,66 @@ Scan the QR code or visit the verification URL to see authenticated application 
 │   ├── controllers/          # Business logic
 │   ├── routes/               # API routes
 │   └── server.js             # Express app
-├── public/
+├── public/                 # Frontend
 │   ├── index.html            # Application form
 │   ├── verify.html           # Verification page
 │   ├── css/styles.css        # Styling
 │   └── js/                   # Frontend scripts
 └── package.json
 ```
+
+## 🤝 Collaboration Guide
+
+How to work with a partner on this project.
+
+### 1. Shared Database (Recommended)
+
+To ensure you and your partner see the same data:
+
+1. Go to **[MongoDB Atlas](https://www.mongodb.com/cloud/atlas)** and create a free account.
+2. Create a new Cluster (FREE tier).
+3. In **Database Access**, create a user (e.g., `admin`) and password.
+4. In **Network Access**, allow access from anywhere (`0.0.0.0/0`) for development.
+5. Get the connection string (Driver: Node.js) which looks like:
+   `mongodb+srv://admin:<password>@cluster0.example.mongodb.net/?retryWrites=true&w=majority`
+6. **Both partners** must paste this string into their local `.env` file as `MONGODB_URI`.
+
+### 2. Git Workflow
+
+1. **Clone** the repo:
+   ```bash
+   git clone https://github.com/SaadAhmadCS/Qr-based-identification-system.git
+   ```
+2. **Before starting work**, always pull latest changes:
+   ```bash
+   git pull origin main
+   ```
+3. **Make changes**, then commit and push:
+   ```bash
+   git add .
+   git commit -m "Added new feature"
+   git push origin main
+   ```
+
+## 🚀 Deployment
+
+### Option 1: Render (Easiest)
+
+1. Push your code to GitHub.
+2. Go to **[Render.com](https://render.com)** and sign up.
+3. Click **New +** -> **Web Service**.
+4. Connect your GitHub repository.
+5. Settings:
+   - **Build Command:** `npm install`
+   - **Start Command:** `npm start`
+6. Add Environment Variables:
+   - `MONGODB_URI`: (Your Atlas connection string)
+   - `NODE_ENV`: `production`
+   - `BASE_URL`: (Your Render URL, e.g., `https://myapp.onrender.com`)
+
+### Option 2: Railway
+
+Similar to Render, simply connect GitHub and add variables.
 
 ## Security
 
