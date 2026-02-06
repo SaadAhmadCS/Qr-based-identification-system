@@ -29,7 +29,9 @@ cd "Qr based identification system"
 # Install dependencies
 npm install
 
-# Create .env file (or copy from .env.example)
+# Create .env file (copy .env.example and rename to .env)
+# ⚠️ IMPORTANT: File must be named exactly ".env" (not .env.local)
+
 # Configure your MongoDB URI
 
 # Start development server
@@ -38,7 +40,7 @@ npm run dev
 
 ### Environment Variables
 
-Create a `.env` file:
+Create a `.env` file (NOT `.env.local`):
 
 ```env
 PORT=3000
