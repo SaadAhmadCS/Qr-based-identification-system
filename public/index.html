@@ -1,263 +1,216 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visa Application - QR Verification System</title>
-    <meta
-      name="description"
-      content="Submit your visa application online and receive a secure QR code for instant verification"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div class="bg-pattern"></div>
 
-    <div class="container">
-      <header class="header">
-        <h1>🛂 Visa Application Portal</h1>
-        <p>Submit your application and receive a secure verification QR code</p>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visa Application - QR Verification System</title>
+  <meta name="description"
+    content="Submit your visa application online and receive a secure QR code for instant verification" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 
-      <!-- Application Form -->
-      <div class="card" id="formCard">
-        <form id="applicationForm">
-          <!-- Personal Information -->
-          <div class="form-section">
-            <h2>👤 Personal Information</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fullName">Full Name (as in passport) *</label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  required
-                  placeholder="John Doe"
-                />
-              </div>
-              <div class="form-group">
-                <label for="passportNumber">Passport Number *</label>
-                <input
-                  type="text"
-                  id="passportNumber"
-                  name="passportNumber"
-                  required
-                  placeholder="AB1234567"
-                />
-              </div>
-            </div>
+<body>
+  <div class="bg-pattern"></div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nationality">Nationality *</label>
-                <input
-                  type="text"
-                  id="nationality"
-                  name="nationality"
-                  required
-                  placeholder="United States"
-                />
-              </div>
-              <div class="form-group">
-                <label for="dateOfBirth">Date of Birth *</label>
-                <input
-                  type="date"
-                  id="dateOfBirth"
-                  name="dateOfBirth"
-                  required
-                />
-              </div>
-            </div>
+  <div class="container">
+    <header class="header">
+      <h1>🛂 Visa Application Portal</h1>
+      <p>Submit your application and receive a secure verification QR code</p>
+    </header>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="gender">Gender *</label>
-                <select id="gender" name="gender" required>
-                  <option value="">Select Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact Information -->
-          <div class="form-section">
-            <h2>📧 Contact Information</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="email@example.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number *</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  placeholder="+1 234 567 8900"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Visa Details -->
-          <div class="form-section">
-            <h2>🛫 Visa Details</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="visaCategory">Visa Category *</label>
-                <select id="visaCategory" name="visaCategory" required>
-                  <option value="">Select Category</option>
-                  <option value="Tourist">Tourist</option>
-                  <option value="Business">Business</option>
-                  <option value="Work">Work</option>
-                  <option value="Student">Student</option>
-                  <option value="Transit">Transit</option>
-                  <option value="Medical">Medical</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="entryType">Entry Type</label>
-                <select id="entryType" name="entryType">
-                  <option value="Single">Single Entry</option>
-                  <option value="Multiple">Multiple Entry</option>
-                </select>
-              </div>
-            </div>
-
+    <!-- Application Form -->
+    <div class="card" id="formCard">
+      <form id="applicationForm">
+        <!-- Personal Information -->
+        <div class="form-section">
+          <h2>👤 Personal Information</h2>
+          <div class="form-row">
             <div class="form-group">
-              <label for="purposeOfVisit">Purpose of Visit *</label>
-              <textarea
-                id="purposeOfVisit"
-                name="purposeOfVisit"
-                required
-                placeholder="Describe the purpose of your visit in detail..."
-              ></textarea>
+              <label for="fullName">Full Name (as in passport) *</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="passportNumber">Passport Number *</label>
+            <input type="text" id="passportNumber" name="passportNumber" required pattern="[A-Z]{1,2}[0-9]{5,7}"
+              title="1–2 letters followed by 5–7 numbers (e.g. AB1234567)" placeholder="AB1234567" />
             </div>
           </div>
 
-          <!-- Travel Dates -->
-          <div class="form-section">
-            <h2>📅 Travel Dates</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="intendedArrivalDate">Intended Arrival Date *</label>
-                <input
-                  type="date"
-                  id="intendedArrivalDate"
-                  name="intendedArrivalDate"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="intendedDepartureDate"
-                  >Intended Departure Date *</label
-                >
-                <input
-                  type="date"
-                  id="intendedDepartureDate"
-                  name="intendedDepartureDate"
-                  required
-                />
-              </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nationality">Nationality *</label>
+              <input type="text" id="nationality" name="nationality" required placeholder="United States" />
+            </div>
+            <div class="form-group">
+              <label for="dateOfBirth">Date of Birth *</label>
+              <input type="date" id="dateOfBirth" name="dateOfBirth" required />
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary" id="submitBtn">
-            <span>Submit Application</span>
-          </button>
-
-          <div class="error-message" id="errorMessage"></div>
-        </form>
-      </div>
-
-      <!-- Success Result -->
-      <div class="card result-card" id="resultCard">
-        <h2 style="color: var(--success); margin-bottom: 16px">
-          ✅ Application Submitted Successfully!
-        </h2>
-        <p style="color: var(--text-secondary)">
-          Your application has been received. Save your QR code for
-          verification.
-        </p>
-
-        <div class="qr-container">
-          <img id="qrCodeImage" src="" alt="Verification QR Code" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gender">Gender *</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <p style="color: var(--text-secondary); margin-bottom: 8px">
-          Reference Number:
-        </p>
-        <div class="reference-number" id="referenceNumber"></div>
+        <!-- Contact Information -->
+        <div class="form-section">
+          <h2>📧 Contact Information</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="email@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8900" />
+            </div>
+          </div>
+        </div>
 
-        <p style="color: var(--text-secondary); font-size: 0.875rem">
-          Scan this QR code to verify your application details at any time.
-        </p>
+        <!-- Visa Details -->
+        <div class="form-section">
+          <h2>🛫 Visa Details</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="visaCategory">Visa Category *</label>
+              <select id="visaCategory" name="visaCategory" required>
+                <option value="">Select Category</option>
+                <option value="Tourist">Tourist</option>
+                <option value="Business">Business</option>
+                <option value="Work">Work</option>
+                <option value="Student">Student</option>
+                <option value="Transit">Transit</option>
+                <option value="Medical">Medical</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="entryType">Entry Type</label>
+              <select id="entryType" name="entryType">
+                <option value="Single">Single Entry</option>
+                <option value="Multiple">Multiple Entry</option>
+              </select>
+            </div>
+          </div>
 
-        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px; align-items: center;">
-          <a href="/" class="btn btn-primary" style="text-decoration: none;">
-            Submit Another Application
-          </a>
+          <div class="form-group">
+            <label for="purposeOfVisit">Purpose of Visit *</label>
+            <textarea id="purposeOfVisit" name="purposeOfVisit" required
+              placeholder="Describe the purpose of your visit in detail..."></textarea>
+          </div>
+        </div>
 
-          <button
+        <!-- Travel Dates -->
+        <div class="form-section">
+          <h2>📅 Travel Dates</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="intendedArrivalDate">Intended Arrival Date *</label>
+              <input type="date" id="intendedArrivalDate" name="intendedArrivalDate" required />
+            </div>
+            <div class="form-group">
+              <label for="intendedDepartureDate">Intended Departure Date *</label>
+              <input type="date" id="intendedDepartureDate" name="intendedDepartureDate" required />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn">
+          <span>Submit Application</span>
+        </button>
+
+        <div class="error-message" id="errorMessage"></div>
+      </form>
+    </div>
+
+    <!-- Success Result -->
+    <div class="card result-card" id="resultCard">
+      <h2 style="color: var(--success); margin-bottom: 16px">
+        ✅ Application Submitted Successfully!
+      </h2>
+      <p style="color: var(--text-secondary)">
+        Your application has been received. Save your QR code for
+        verification.
+      </p>
+
+      <div class="qr-container">
+        <img id="qrCodeImage" src="" alt="Verification QR Code" />
+      </div>
+
+      <p style="color: var(--text-secondary); margin-bottom: 8px">
+        Reference Number:
+      </p>
+      <div class="reference-number" id="referenceNumber"></div>
+
+      <p style="color: var(--text-secondary); font-size: 0.875rem">
+        Scan this QR code to verify your application details at any time.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px; align-items: center;">
+        <a href="/" class="btn btn-primary" style="text-decoration: none;">
+          Submit Another Application
+        </a>
+
+        <!-- <button
             type="button"
             class="btn btn-primary"
             style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"
             onclick="downloadQRCode()"
           >
             Download QR Code
-          </button>
-        </div>
+          </button> -->
 
-        <div class="footer-text">
-          This QR code contains a secure verification URL, not your personal
-          data.
-        </div>
+
+        <button id="downloadBtn"
+          type="button"
+            class="btn btn-primary"
+            style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">Download QR Code</button>
+
+      </div>
+
+      <div class="footer-text">
+        This QR code contains a secure verification URL, not your personal
+        data.
       </div>
     </div>
+  </div>
 
-    <script>
-      // Download QR Code function - defined globally before form.js loads
-      function downloadQRCode() {
-        var qrImage = document.getElementById('qrCodeImage');
-        var refNumber = document.getElementById('referenceNumber').textContent;
-        
-        if (!qrImage || !qrImage.src || qrImage.src === '' || qrImage.src === window.location.href) {
-          alert('QR Code not available. Please submit an application first.');
-          return;
-        }
-        
-        // Create download link
-        var link = document.createElement('a');
-        link.href = qrImage.src;
-        link.download = refNumber + '-qrcode.png';
-        
-        // Trigger download
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        console.log('Download initiated for: ' + refNumber);
+  <script>
+    // Download QR Code function - defined globally before form.js loads
+    function downloadQRCode() {
+      var qrImage = document.getElementById('qrCodeImage');
+      var refNumber = document.getElementById('referenceNumber').textContent;
+
+      if (!qrImage || !qrImage.src || qrImage.src === '' || qrImage.src === window.location.href) {
+        alert('QR Code not available. Please submit an application first.');
+        return;
       }
-    </script>
-    <script src="js/form.js"></script>
-  </body>
+
+      // Create download link
+      var link = document.createElement('a');
+      link.href = qrImage.src;
+      link.download = refNumber + '-qrcode.png';
+
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      console.log('Download initiated for: ' + refNumber);
+    }
+  </script>
+  <script src="js/form.js"></script>
+</body>
+
 </html>
-
-
