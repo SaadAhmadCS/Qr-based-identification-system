@@ -88,9 +88,10 @@ h2 {
 }
 
 .form-row {
-  display: flex; /* Flex instead of Grid for classic layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .form-group {
@@ -127,9 +128,6 @@ h2 {
 }
 
 /* Required field indicator needed for accessibility */
-label::after {
-  /* content: " *";  Removed as html includes it in text */
-}
 
 /* Buttons - Solid Color */
 .btn {
@@ -267,7 +265,7 @@ label::after {
 /* Responsive */
 @media (max-width: 600px) {
   .form-row {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 16px;
   }
   

@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
       intendedDepartureDate: document.getElementById('intendedDepartureDate').value
     };
 
+    const todayDate = new Date();
+    todayDate.setHours(0, 0, 0, 0);
+
     // Validate all fields
     for (const [key, value] of Object.entries(formData)) {
       if (!value) {
@@ -57,8 +60,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Validate DOB
+    const dob = new Date(formData.dateOfBirth);
+    if (dob >= todayDate) {
+      showError('Date of Birth cannot be in the future');
+      resetButton();
+      return;
+    }
+
     if (new Date(formData.intendedDepartureDate) <= new Date(formData.dateOfBirth)) {
-      showError('Date of Birth must be before arrival date');
+      showError('Date of Birth must be before departure date');
+      resetButton();
+      return;
+    }
+
+    // Validate Name (No numbers)
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    if (!nameRegex.test(formData.fullName)) {
+      showError('Full Name must contain letters only');
+      resetButton();
+      return;
+    }
+
+    // Validate Nationality (No numbers)
+    if (!nameRegex.test(formData.nationality)) {
+      showError('Nationality must contain letters only');
       resetButton();
       return;
     }
