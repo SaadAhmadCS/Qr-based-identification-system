@@ -89,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Validate POV
-    if (formData.purposeOfVisit.length < 5 || formData.purposeOfVisit.length > 50) {
+    if (formData.purposeOfVisit.length < 5 || formData.purposeOfVisit.length > 100) {
       showError('Purpose of visit must be between 5 to 50 characters');
       resetButton();
       return;
     }
 
-
-    // Validate email
+  
+    // Validate Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(formData.email)) {
@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resetButton();
       return;
     }
+
 
 
     // Validate phone number
